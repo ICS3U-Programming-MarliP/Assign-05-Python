@@ -5,8 +5,9 @@
 # to a farm animal then using a function, finds and displays
 # the sound said animal makes.
 
-
+# create farm animal sound function
 def farm_animal_sound(user_animal):
+    #use match case to match integer to sound
     match user_animal:
         case 1:
             animal_sound = "Oink"
@@ -31,19 +32,25 @@ def farm_animal_sound(user_animal):
 
     return animal_sound
 
-
+# start main
 def main():
+    # opening message
     print(
         "Hello! Welcome to the farm animal sound program! You will be asked to input a number correlation with a farm animal and the program will output the sound it makes. Below is the list of animals.\n\nPig - 1\nHorse - 2\nSheep - 3\nChicken - 4\nRooster - 5\nGoat - 6\nCow - 7\nDonkey - 8\nDog - 9\nCat - 10\n"
     )
 
+    # while loop to return errors back to start
     while True:
+        # get user animal as string
         user_animal_str = str(input("Please enter the animal number here: "))
 
+        # catch input errors
         try:
             user_animal = int(user_animal_str)
+            # catch invalid numbers
             if user_animal < 1 or user_animal > 10:
                 print("\nPlease enter a number corresponding to a farm animal.\n")
+            # run actual function
             else:
                 animal_sound = farm_animal_sound(user_animal)
                 print("\n{}!".format(animal_sound))
